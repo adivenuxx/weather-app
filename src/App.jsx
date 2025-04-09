@@ -54,7 +54,7 @@ function App() {
     const sunset = weather.sys.sunset;
     const isDay = now >= sunrise && now <= sunset;
 
-    if (main.includes("cloud")) return "url('Cloudy.jpg')";
+    if (main.includes("cloud")) return "url('https://github.com/adivenuxx/weather-app/blob/main/Cloudy.jpg?raw=true')";
     if (main.includes("rain")) return "url('Rainy.jpg')";
     if (main.includes("snow")) return "url('Snowy.jpg')";
     if (main.includes("clear") && isDay) return "url('https://github.com/adivenuxx/weather-app/blob/main/Sunny.jpg?raw=true')";
