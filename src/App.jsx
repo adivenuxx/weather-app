@@ -17,7 +17,7 @@ function App() {
   });
   const [error, setError] = useState('');
 
-  const API_KEY = '21ce936214d8a6acf269648ccce6d284'; // 🔑 Replace with your OpenWeatherMap API key
+  const API_KEY = '21ce936214d8a6acf269648ccce6d284'; 
 
   const fetchWeather = async () => {
     if (!city) return;
