@@ -54,21 +54,23 @@ function App() {
 
   const getBackgroundImage = () => {
     if (!weather) return '';
+  
     const main = weather.weather[0].main.toLowerCase();
     const now = weather.dt;
     const sunrise = weather.sys.sunrise;
     const sunset = weather.sys.sunset;
     const isDay = now >= sunrise && now <= sunset;
   
-    // Fixed paths with absolute URLs
-    if (main.includes("cloud")) return "url('/Cloudy.jpg')";
-    if (main.includes("rain")) return "url('/Rainy.jpg')";
-    if (main.includes("snow")) return "url('/Snowy.jpg')";
-    if (main.includes("clear") && isDay) return "url('/Sunny.jpg')";
-    if (main.includes("clear") && !isDay) return "url('/Moon.jpg')";
-    
+    if (main.includes("clear") && isDay) return "/assets/Sunny.jpg";
+    if (main.includes("clear") && !isDay) return "/assets/Moon.jpg";
+    if (main.includes("cloud")) return "/assets/Cloudy.jpg";
+    if (main.includes("rain")) return "/assets/Rainy.jpg";
+    if (main.includes("snow")) return "/assets/Snowy.jpg";
+
+  
     return '';
   };
+  
   
   useEffect(() => {
     document.body.className = darkMode ? 'dark-mode' : '';
@@ -83,7 +85,7 @@ function App() {
         </button>
       </div>
 
-      <div className="main-box" style={{ backgroundImage: getBackgroundImage() }}>
+      <div className="main-box" style={{ backgroundImage: `url(${getBackgroundImage()})` }}>
         <div className="search-bar">
           <input
             type="text"
