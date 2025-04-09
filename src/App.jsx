@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import './index.css';
 
+const Sunny = new URL('./assets/Sunny.jpg', import.meta.url).href;
+const Cloudy = new URL('./assets/Cloudy.jpg', import.meta.url).href;
+const Rainy = new URL('./assets/Rainy.jpg', import.meta.url).href;
+const Snowy = new URL('./assets/Snowy.jpg', import.meta.url).href;
+const Moon = new URL('./assets/Moon.jpg', import.meta.url).href;
+
 function App() {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState(null);
@@ -48,20 +54,22 @@ function App() {
 
   const getBackgroundImage = () => {
     if (!weather) return '';
+  
     const main = weather.weather[0].main.toLowerCase();
     const now = weather.dt;
     const sunrise = weather.sys.sunrise;
     const sunset = weather.sys.sunset;
     const isDay = now >= sunrise && now <= sunset;
-
-    if (main.includes("cloud")) return "url('https://github.com/adivenuxx/weather-app/blob/main/Cloudy.jpg?raw=true')";
-    if (main.includes("rain")) return "url('Rainy.jpg')";
-    if (main.includes("snow")) return "url('Snowy.jpg')";
-    if (main.includes("clear") && isDay) return "url('https://github.com/adivenuxx/weather-app/blob/main/Sunny.jpg?raw=true')";
-    if (main.includes("clear") && !isDay) return "url('Moon.jpg')";
+  
+    if (main.includes("cloud")) return Cloudy;
+    if (main.includes("rain")) return Rainy;
+    if (main.includes("snow")) return Snowy;
+    if (main.includes("clear") && isDay) return Sunny;
+    if (main.includes("clear") && !isDay) return Moon;
+  
     return '';
   };
-
+  
   useEffect(() => {
     document.body.className = darkMode ? 'dark-mode' : '';
   }, [darkMode]);
