@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import './index.css';
 
-const Sunny = new URL('./assets/Sunny.jpg', import.meta.url).href;
-const Cloudy = new URL('./assets/Cloudy.jpg', import.meta.url).href;
-const Rainy = new URL('./assets/Rainy.jpg', import.meta.url).href;
-const Snowy = new URL('./assets/Snowy.jpg', import.meta.url).href;
-const Moon = new URL('./assets/Moon.jpg', import.meta.url).href;
+const Sunny = '/assets/Sunny.jpg';
+const Cloudy = '/assets/Cloudy.jpg';
+const Rainy = '/assets/Rainy.jpg';
+const Snowy = '/assets/Snowy.jpg';
+const Moon = '/assets/Moon.jpg';
 
 function App() {
   const [city, setCity] = useState('');
