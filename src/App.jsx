@@ -63,7 +63,8 @@ function App() {
   
     if (main.includes("clear") && isDay) return "/assets/Sunny.jpg";
     if (main.includes("clear") && !isDay) return "/assets/Moon.jpg";
-    if (main.includes("cloud")) return "/assets/Cloudy.jpg";
+    if (main.includes("cloud") && isDay) return "/assets/Cloudy.jpg";
+    if (main.includes("cloud") && !isDay) return "/assets/Moon.jpg";
     if (main.includes("rain")) return "/assets/Rainy.jpg";
     if (main.includes("snow")) return "/assets/Snowy.jpg";
 
